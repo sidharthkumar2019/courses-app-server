@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 
 // routes
-import {courseRoutes} from './routes/course.js';
+import {courseRoutes} from './routes/course';
 
 // Configurations
 app.use(express.json());
@@ -17,9 +17,11 @@ app.use('/api', courseRoutes);
 // MongoDB connection
 const connectToDB = async () => {
     try {
-      await mongoose.connect(process.env.MONGO_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
+      await mongoose.connect(process.env.MONGO_URI ?? "", {
+        // These options are not needed in mongoose 6+
+
+        // useNewUrlParser: true,
+        // useUnifiedTopology: true,
       });
       console.log('Connected successfully to MongoDB');
     } catch (err) {

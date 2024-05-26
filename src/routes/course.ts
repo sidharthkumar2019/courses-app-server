@@ -1,6 +1,6 @@
 import express from 'express';
 const router = express.Router();
-import { addCourse, allCourses, getCourseById, deleteCourse, updateCourse } from '../controller/course.js';
+import { addCourse, allCourses, getCourseById, deleteCourse, updateCourse } from '../controller/course';
 
 router.post('/course/create', addCourse);
 
